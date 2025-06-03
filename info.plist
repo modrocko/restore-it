@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.toddsgotapen.restoreit</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>00F1381C-8066-410C-9C39-4F93715E757F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>34B77FA0-E257-4FFA-9469-5A0FD4FEA91D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>713F71AE-D10E-4769-88D1-423C40C26D27</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>34B77FA0-E257-4FFA-9469-5A0FD4FEA91D</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>7A77E0D0-1D99-4199-933F-D644CAA33A32</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>7A401FE9-9C64-4EAC-8177-0408868919AA</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F5541B80-C274-4D20-8D83-3672D4CDD8BF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>033112D3-35BF-40A3-A83A-10C120C363D7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Todd Clarke</string>
+	<key>description</key>
+	<string>Restore your saved brower sessions to save time!</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Restore It!</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>ris</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/specify_session.py "$1"
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Save all browser windows &amp; tabs to a new session</string>
+				<key>title</key>
+				<string>Save a browser session</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>00F1381C-8066-410C-9C39-4F93715E757F</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/save_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>34B77FA0-E257-4FFA-9469-5A0FD4FEA91D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>ril</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/view_sessions.py "$1"
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>List previously saved sessions</string>
+				<key>title</key>
+				<string>List sessions</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>713F71AE-D10E-4769-88D1-423C40C26D27</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/restore_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7A77E0D0-1D99-4199-933F-D644CAA33A32</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>querycd "$alfred_workflow_directory"
+python3 scripts/remove_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7A401FE9-9C64-4EAC-8177-0408868919AA</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+
+if [ "$1" = "open_workflow" ]; then
+	open "$alfred_workflow_directory"
+
+elif [ "$1" = "open_data" ]; then
+	open "$alfred_workflow_data"
+
+elif [ "$1" = "edit_data" ]; then
+	open "$alfred_workflow_data/sessions.json"
+
+else
+	python3 scripts/util_${1}.py
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>033112D3-35BF-40A3-A83A-10C120C363D7</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>:riu</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>import json
+import sys
+
+query = sys.argv[1].lower() if len(sys.argv) &gt; 1 else ""
+
+items = [
+    {"title": "Open workflow folder", "arg": "open_workflow"},
+    {"title": "Open data folder", "arg": "open_data"},
+    #{"title": "Backup data file", "arg": "backup_data"},
+    {"title": "Edit data file", "arg": "edit_data"},
+    #{"title": "Export URLs", "arg": "export_urls"},
+    #{"title": "Initialize workflow", "arg": "init_workflow"},
+    #{"title": "Reset workflow (volitile ❗)", "arg": "reset_workflow"}
+]
+
+filtered = [item for item in items if query in item["title"].lower()]
+
+print(json.dumps({"items": filtered}))
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Various utilities for this workflow</string>
+				<key>title</key>
+				<string>Run utility command</string>
+				<key>type</key>
+				<integer>9</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F5541B80-C274-4D20-8D83-3672D4CDD8BF</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>00F1381C-8066-410C-9C39-4F93715E757F</key>
+		<dict>
+			<key>note</key>
+			<string>specify session</string>
+			<key>xpos</key>
+			<real>215</real>
+			<key>ypos</key>
+			<real>35</real>
+		</dict>
+		<key>033112D3-35BF-40A3-A83A-10C120C363D7</key>
+		<dict>
+			<key>note</key>
+			<string>run utils</string>
+			<key>xpos</key>
+			<real>655</real>
+			<key>ypos</key>
+			<real>590</real>
+		</dict>
+		<key>34B77FA0-E257-4FFA-9469-5A0FD4FEA91D</key>
+		<dict>
+			<key>note</key>
+			<string>save session</string>
+			<key>xpos</key>
+			<real>570</real>
+			<key>ypos</key>
+			<real>35</real>
+		</dict>
+		<key>713F71AE-D10E-4769-88D1-423C40C26D27</key>
+		<dict>
+			<key>note</key>
+			<string>show sessions</string>
+			<key>xpos</key>
+			<real>215</real>
+			<key>ypos</key>
+			<real>210</real>
+		</dict>
+		<key>7A401FE9-9C64-4EAC-8177-0408868919AA</key>
+		<dict>
+			<key>xpos</key>
+			<real>575</real>
+			<key>ypos</key>
+			<real>360</real>
+		</dict>
+		<key>7A77E0D0-1D99-4199-933F-D644CAA33A32</key>
+		<dict>
+			<key>note</key>
+			<string>restore session</string>
+			<key>xpos</key>
+			<real>570</real>
+			<key>ypos</key>
+			<real>210</real>
+		</dict>
+		<key>F5541B80-C274-4D20-8D83-3672D4CDD8BF</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>8</integer>
+			<key>note</key>
+			<string>invoke utils</string>
+			<key>xpos</key>
+			<real>170</real>
+			<key>ypos</key>
+			<real>590</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>Google Chrome</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>Chrome</string>
+						<string>Google Chrome</string>
+					</array>
+					<array>
+						<string>Brave</string>
+						<string>Brave Browser</string>
+					</array>
+					<array>
+						<string>Safari</string>
+						<string>Safari</string>
+					</array>
+					<array>
+						<string>Arc</string>
+						<string>Arc</string>
+					</array>
+					<array>
+						<string>Edge</string>
+						<string>Microsoft Edge</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Select the browser for saving your browser sessions</string>
+			<key>label</key>
+			<string>Select browser</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>browser</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string></string>
+	<key>webaddress</key>
+	<string>toddsgotapen.com</string>
+</dict>
+</plist>
