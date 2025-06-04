@@ -22,27 +22,31 @@ for session in sessions:
     name = session["session"]
     if query and query not in name.lower():
         continue
+
+    uid = session.get("id")
     items.append({
         "title": name,
-        "arg": name,
+        "arg": uid,
         "subtitle": "↵ Restore session ∙ ⌘ Overwrite ∙ ⌥ Rename ∙ ⌃ Remove ∙ ⇧ View",
         "mods": {
             "cmd": {
-                "arg": name,
+                "arg": uid,
                 "subtitle": "⌘ Overwrite this session with current windows & tabs"
             },
             "alt": {
+                "arg": name,
                 "subtitle": "⌥ Rename this session",
                 "variables": {
-                    "session_name": name
+                    "current_session_name": name,
+                     "session_id": uid
                 }
             },
             "ctrl": {
-                "arg": name,
+                "arg": uid,
                 "subtitle": "⌃ Remove this session"
             },
             "shift": {
-                "arg": name,
+                "arg": uid,
                 "subtitle": "⇧ View session windows & urls"
             }
         }

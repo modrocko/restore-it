@@ -21,11 +21,24 @@
 				<false/>
 			</dict>
 		</array>
+		<key>5CEA7996-8733-40F3-B2EC-BCC9ABCF813D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>709C8039-564D-4A7E-9BBC-F28430FAA799</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>713F71AE-D10E-4769-88D1-423C40C26D27</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>34B77FA0-E257-4FFA-9469-5A0FD4FEA91D</string>
+				<string>0A57F8C2-907B-4FAA-B3F9-7935556FD55A</string>
 				<key>modifiers</key>
 				<integer>1048576</integer>
 				<key>modifiersubtext</key>
@@ -48,6 +61,29 @@
 				<string>7A401FE9-9C64-4EAC-8177-0408868919AA</string>
 				<key>modifiers</key>
 				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A2EC8477-CD4F-4CE1-BB7E-B09E8B152A44</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A2EC8477-CD4F-4CE1-BB7E-B09E8B152A44</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5CEA7996-8733-40F3-B2EC-BCC9ABCF813D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
@@ -92,9 +128,9 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>68</integer>
+				<integer>102</integer>
 				<key>keyword</key>
-				<string>ris</string>
+				<string>{var:res_utils}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -106,26 +142,42 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>cd "$alfred_workflow_directory"
-python3 scripts/specify_session.py "$1"
+				<string>import json
+import sys
+
+query = sys.argv[1].lower() if len(sys.argv) &gt; 1 else ""
+
+items = [
+    {"title": "Open workflow folder", "arg": "open_workflow"},
+    {"title": "Open data folder", "arg": "open_data"},
+    #{"title": "Backup data file", "arg": "backup_data"},
+    {"title": "Edit data file", "arg": "edit_data"},
+    #{"title": "Export URLs", "arg": "export_urls"},
+    #{"title": "Initialize workflow", "arg": "init_workflow"},
+    #{"title": "Reset workflow (volitile ❗)", "arg": "reset_workflow"}
+]
+
+filtered = [item for item in items if query in item["title"].lower()]
+
+print(json.dumps({"items": filtered}))
 </string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Save all browser windows &amp; tabs to a new session</string>
+				<string>Various utilities for this workflow</string>
 				<key>title</key>
-				<string>Save a browser session</string>
+				<string>Run utility command</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>9</integer>
 				<key>withspace</key>
 				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>00F1381C-8066-410C-9C39-4F93715E757F</string>
+			<string>F5541B80-C274-4D20-8D83-3672D4CDD8BF</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -138,7 +190,7 @@ python3 scripts/specify_session.py "$1"
 				<integer>102</integer>
 				<key>script</key>
 				<string>cd "$alfred_workflow_directory"
-python3 scripts/save_session.py "$1"</string>
+python3 scripts/create_session.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -150,105 +202,6 @@ python3 scripts/save_session.py "$1"</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>34B77FA0-E257-4FFA-9469-5A0FD4FEA91D</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>keyword</key>
-				<string>ril</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>cd "$alfred_workflow_directory"
-python3 scripts/view_sessions.py "$1"
-</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>List previously saved sessions</string>
-				<key>title</key>
-				<string>List sessions</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>713F71AE-D10E-4769-88D1-423C40C26D27</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>cd "$alfred_workflow_directory"
-python3 scripts/restore_session.py "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>7A77E0D0-1D99-4199-933F-D644CAA33A32</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>querycd "$alfred_workflow_directory"
-python3 scripts/remove_session.py "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>7A401FE9-9C64-4EAC-8177-0408868919AA</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -302,9 +255,9 @@ fi</string>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>68</integer>
 				<key>keyword</key>
-				<string>:riu</string>
+				<string>{var:res_save}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -316,44 +269,218 @@ fi</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>import json
-import sys
-
-query = sys.argv[1].lower() if len(sys.argv) &gt; 1 else ""
-
-items = [
-    {"title": "Open workflow folder", "arg": "open_workflow"},
-    {"title": "Open data folder", "arg": "open_data"},
-    #{"title": "Backup data file", "arg": "backup_data"},
-    {"title": "Edit data file", "arg": "edit_data"},
-    #{"title": "Export URLs", "arg": "export_urls"},
-    #{"title": "Initialize workflow", "arg": "init_workflow"},
-    #{"title": "Reset workflow (volitile ❗)", "arg": "reset_workflow"}
-]
-
-filtered = [item for item in items if query in item["title"].lower()]
-
-print(json.dumps({"items": filtered}))
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/specify_session.py "$1"
 </string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Various utilities for this workflow</string>
+				<string>Save all browser windows &amp; tabs to a new session</string>
 				<key>title</key>
-				<string>Run utility command</string>
+				<string>Save a browser session</string>
 				<key>type</key>
-				<integer>9</integer>
+				<integer>0</integer>
 				<key>withspace</key>
 				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>F5541B80-C274-4D20-8D83-3672D4CDD8BF</string>
+			<string>00F1381C-8066-410C-9C39-4F93715E757F</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/overwrite_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0A57F8C2-907B-4FAA-B3F9-7935556FD55A</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>{var:res_list}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/list_sessions.py "$1"
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>List previously saved sessions</string>
+				<key>title</key>
+				<string>List sessions</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>713F71AE-D10E-4769-88D1-423C40C26D27</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/restore_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7A77E0D0-1D99-4199-933F-D644CAA33A32</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/remove_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7A401FE9-9C64-4EAC-8177-0408868919AA</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>rename session</string>
+				<key>subtext</key>
+				<string>Rename this session</string>
+				<key>text</key>
+				<string>Rename session: {var:current_session_name}</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A2EC8477-CD4F-4CE1-BB7E-B09E8B152A44</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/rename_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>709C8039-564D-4A7E-9BBC-F28430FAA799</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>current_session_name</key>
+					<string>{var:current_session_name}</string>
+					<key>session_id</key>
+					<string>{var:session_id}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>5CEA7996-8733-40F3-B2EC-BCC9ABCF813D</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -362,6 +489,8 @@ print(json.dumps({"items": filtered}))
 	<dict>
 		<key>00F1381C-8066-410C-9C39-4F93715E757F</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>8</integer>
 			<key>note</key>
 			<string>specify session</string>
 			<key>xpos</key>
@@ -374,34 +503,63 @@ print(json.dumps({"items": filtered}))
 			<key>note</key>
 			<string>run utils</string>
 			<key>xpos</key>
-			<real>655</real>
+			<real>1000</real>
 			<key>ypos</key>
-			<real>590</real>
+			<real>35</real>
+		</dict>
+		<key>0A57F8C2-907B-4FAA-B3F9-7935556FD55A</key>
+		<dict>
+			<key>note</key>
+			<string>overwrite session</string>
+			<key>xpos</key>
+			<real>570</real>
+			<key>ypos</key>
+			<real>200</real>
 		</dict>
 		<key>34B77FA0-E257-4FFA-9469-5A0FD4FEA91D</key>
 		<dict>
 			<key>note</key>
-			<string>save session</string>
+			<string>create session</string>
 			<key>xpos</key>
 			<real>570</real>
 			<key>ypos</key>
 			<real>35</real>
 		</dict>
-		<key>713F71AE-D10E-4769-88D1-423C40C26D27</key>
+		<key>5CEA7996-8733-40F3-B2EC-BCC9ABCF813D</key>
+		<dict>
+			<key>xpos</key>
+			<real>785</real>
+			<key>ypos</key>
+			<real>730</real>
+		</dict>
+		<key>709C8039-564D-4A7E-9BBC-F28430FAA799</key>
 		<dict>
 			<key>note</key>
-			<string>show sessions</string>
+			<string>rename tag</string>
+			<key>xpos</key>
+			<real>895</real>
+			<key>ypos</key>
+			<real>700</real>
+		</dict>
+		<key>713F71AE-D10E-4769-88D1-423C40C26D27</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>8</integer>
+			<key>note</key>
+			<string>list sessions</string>
 			<key>xpos</key>
 			<real>215</real>
 			<key>ypos</key>
-			<real>210</real>
+			<real>360</real>
 		</dict>
 		<key>7A401FE9-9C64-4EAC-8177-0408868919AA</key>
 		<dict>
+			<key>note</key>
+			<string>remove session</string>
 			<key>xpos</key>
-			<real>575</real>
+			<real>570</real>
 			<key>ypos</key>
-			<real>360</real>
+			<real>525</real>
 		</dict>
 		<key>7A77E0D0-1D99-4199-933F-D644CAA33A32</key>
 		<dict>
@@ -410,7 +568,16 @@ print(json.dumps({"items": filtered}))
 			<key>xpos</key>
 			<real>570</real>
 			<key>ypos</key>
-			<real>210</real>
+			<real>360</real>
+		</dict>
+		<key>A2EC8477-CD4F-4CE1-BB7E-B09E8B152A44</key>
+		<dict>
+			<key>note</key>
+			<string>rename session prompt</string>
+			<key>xpos</key>
+			<real>570</real>
+			<key>ypos</key>
+			<real>700</real>
 		</dict>
 		<key>F5541B80-C274-4D20-8D83-3672D4CDD8BF</key>
 		<dict>
@@ -419,9 +586,9 @@ print(json.dumps({"items": filtered}))
 			<key>note</key>
 			<string>invoke utils</string>
 			<key>xpos</key>
-			<real>170</real>
+			<real>805</real>
 			<key>ypos</key>
-			<real>590</real>
+			<real>35</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -463,6 +630,69 @@ print(json.dumps({"items": filtered}))
 			<string>popupbutton</string>
 			<key>variable</key>
 			<string>browser</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>res save</string>
+				<key>placeholder</key>
+				<string>res save</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Save all browser windows &amp; tabs to a new session</string>
+			<key>label</key>
+			<string>Save browser session keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>res_save</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>res list</string>
+				<key>placeholder</key>
+				<string>res list</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>List previously saved sessions</string>
+			<key>label</key>
+			<string>List sessions keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>res_list</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>res utils</string>
+				<key>placeholder</key>
+				<string>res utils</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>List &amp; run workflow utilities</string>
+			<key>label</key>
+			<string>Workflow utilities keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>res_utils</string>
 		</dict>
 	</array>
 	<key>version</key>

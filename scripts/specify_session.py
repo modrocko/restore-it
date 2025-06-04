@@ -32,7 +32,10 @@ if query and query not in session_names:
     items.append({
         "title": f"'{query}'",
         "subtitle": "↵ Save new session",
-        "arg": query
+        "arg": query,
+        "variables": {
+            "operation": "create_session"
+        }
     })
 
 # Show existing matches
@@ -42,7 +45,10 @@ for name in session_names:
     items.append({
         "title": name,
         "subtitle": "↵ Overwrite existing session",
-        "arg": name
+        "arg": name,
+        "variables": {
+            "operation": "overwrite_session"
+        }
     })
 
 # Default fallback
