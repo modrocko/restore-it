@@ -4,13 +4,13 @@ import json
 import subprocess
 
 if len(sys.argv) < 2:
-    print("No session name provided")
+    print("No session ID provided")
     sys.exit(1)
 
-session_to_remove = sys.argv[1].strip().lower()
+session_id = sys.argv[1].strip()
 workflow_dir = os.environ["alfred_workflow_data"]
 sessions_path = os.path.join(workflow_dir, "sessions.json")
-title = os.environ.get("alfred_workflow_name", "Session Refresh")
+title = os.environ["alfred_workflow_name"]
 
 try:
     with open(sessions_path, "r") as f:
@@ -18,8 +18,12 @@ try:
 except FileNotFoundError:
     sessions = []
 
-# Filter out the session to remove
-updated_sessions = [s for s in sessions if s.get("session", "").lower() != session_to_remove]
+# Get session name before removal (for notification)
+session = next((s for s in sessions if s.get("id") == session_id), None)
+session_name = session.get("session") if session else "Unknown"
+
+# Remove session by ID
+updated_sessions = [s for s in sessions if s.get("id") != session_id]
 
 with open(sessions_path, "w") as f:
     json.dump(updated_sessions, f, indent=2)
@@ -27,5 +31,5 @@ with open(sessions_path, "w") as f:
 # Show macOS notification
 subprocess.run([
     "osascript", "-e",
-    f'display notification "Removed session \\"{session_to_remove}\\"" with title "{title}"'
+    f'display notification "Removed session \\"{session_name}\\"" with title "{title}"'
 ])

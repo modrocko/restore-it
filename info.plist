@@ -76,6 +76,16 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>F47B7353-FF49-4922-B0DD-56AE410C9DF5</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>A2EC8477-CD4F-4CE1-BB7E-B09E8B152A44</key>
 		<array>
@@ -114,6 +124,93 @@
 	<string>Restore It!</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>{var:res_save}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/specify_session.py "$1"
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Save all browser windows &amp; tabs to a new session</string>
+				<key>title</key>
+				<string>Save a browser session</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>00F1381C-8066-410C-9C39-4F93715E757F</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+
+if [ "$1" = "open_workflow" ]; then
+	open "$alfred_workflow_directory"
+
+elif [ "$1" = "open_data" ]; then
+	open "$alfred_workflow_data"
+
+elif [ "$1" = "edit_data" ]; then
+	open "$alfred_workflow_data/sessions.json"
+
+else
+	python3 scripts/util_${1}.py
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>033112D3-35BF-40A3-A83A-10C120C363D7</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -214,93 +311,6 @@ python3 scripts/create_session.py "$1"</string>
 				<integer>102</integer>
 				<key>script</key>
 				<string>cd "$alfred_workflow_directory"
-
-if [ "$1" = "open_workflow" ]; then
-	open "$alfred_workflow_directory"
-
-elif [ "$1" = "open_data" ]; then
-	open "$alfred_workflow_data"
-
-elif [ "$1" = "edit_data" ]; then
-	open "$alfred_workflow_data/sessions.json"
-
-else
-	python3 scripts/util_${1}.py
-fi</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>033112D3-35BF-40A3-A83A-10C120C363D7</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>keyword</key>
-				<string>{var:res_save}</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>cd "$alfred_workflow_directory"
-python3 scripts/specify_session.py "$1"
-</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Save all browser windows &amp; tabs to a new session</string>
-				<key>title</key>
-				<string>Save a browser session</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>00F1381C-8066-410C-9C39-4F93715E757F</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>cd "$alfred_workflow_directory"
 python3 scripts/overwrite_session.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
@@ -313,6 +323,30 @@ python3 scripts/overwrite_session.py "$1"</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>0A57F8C2-907B-4FAA-B3F9-7935556FD55A</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/restore_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7A77E0D0-1D99-4199-933F-D644CAA33A32</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -366,30 +400,6 @@ python3 scripts/list_sessions.py "$1"
 			<string>713F71AE-D10E-4769-88D1-423C40C26D27</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>cd "$alfred_workflow_directory"
-python3 scripts/restore_session.py "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>7A77E0D0-1D99-4199-933F-D644CAA33A32</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -482,6 +492,54 @@ python3 scripts/rename_session.py "$1"</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/view_session.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F47B7353-FF49-4922-B0DD-56AE410C9DF5</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -548,9 +606,9 @@ python3 scripts/rename_session.py "$1"</string>
 			<key>note</key>
 			<string>list sessions</string>
 			<key>xpos</key>
-			<real>215</real>
+			<real>220</real>
 			<key>ypos</key>
-			<real>360</real>
+			<real>525</real>
 		</dict>
 		<key>7A401FE9-9C64-4EAC-8177-0408868919AA</key>
 		<dict>
@@ -578,6 +636,15 @@ python3 scripts/rename_session.py "$1"</string>
 			<real>570</real>
 			<key>ypos</key>
 			<real>700</real>
+		</dict>
+		<key>F47B7353-FF49-4922-B0DD-56AE410C9DF5</key>
+		<dict>
+			<key>note</key>
+			<string>view session</string>
+			<key>xpos</key>
+			<real>570</real>
+			<key>ypos</key>
+			<real>870</real>
 		</dict>
 		<key>F5541B80-C274-4D20-8D83-3672D4CDD8BF</key>
 		<dict>
