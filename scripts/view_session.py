@@ -21,15 +21,13 @@ items = []
 
 if session:
     for w_index, window in enumerate(session["windows"], 1):
-        bounds = window["bounds"]
         tabs = window.get("tabs", [])
         for t_index, tab in enumerate(tabs, 1):
-            url = tab.get("url")
             title = tab.get("title") or url
-            subtitle = f"Window {w_index} • Tab {t_index} • {url}"
+            url = tab.get("url")
             items.append({
                 "title": title,
-                "subtitle": subtitle,
+                "subtitle": url,
                 "arg": url
             })
 

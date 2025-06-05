@@ -260,7 +260,7 @@ query = sys.argv[1].lower() if len(sys.argv) &gt; 1 else ""
 items = [
     {"title": "Open workflow folder", "arg": "open_workflow"},
     {"title": "Open data folder", "arg": "open_data"},
-    #{"title": "Backup data file", "arg": "backup_data"},
+    {"title": "Backup data file", "arg": "backup_data"},
     {"title": "Edit data file", "arg": "edit_data"},
     #{"title": "Export URLs", "arg": "export_urls"},
     #{"title": "Initialize workflow", "arg": "init_workflow"},
@@ -517,7 +517,7 @@ python3 scripts/rename_session.py "$1"</string>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>queuedelaycustom</key>
@@ -544,7 +544,7 @@ python3 scripts/view_session.py "$1"</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
