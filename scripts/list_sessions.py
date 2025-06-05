@@ -46,7 +46,7 @@ for session in sessions:
                 "subtitle": "⌃ Remove this session"
             },
             "shift": {
-                "arg": name,
+                "arg": "",
                 "subtitle": "⇧ View session windows & urls",
                 "variables": {
                     "session_id": uid

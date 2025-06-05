@@ -2,39 +2,35 @@ import sys
 import os
 import json
 
-# Read session ID from modifier var
-uid = os.environ.get("session_id", "").strip()
+query = sys.argv[1].strip().lower() if len(sys.argv) > 1 else ""
+
+uid = os.environ["session_id"]
 workflow_dir = os.environ["alfred_workflow_data"]
 sessions_path = os.path.join(workflow_dir, "sessions.json")
 
-# Load sessions
-try:
-    with open(sessions_path, "r") as f:
-        sessions = json.load(f)
-except:
-    sessions = []
+with open(sessions_path, "r") as f:
+    sessions = json.load(f)
 
-# Find session by id
 session = next((s for s in sessions if s.get("id") == uid), None)
 
 items = []
 
 if session:
-    for w_index, window in enumerate(session["windows"], 1):
-        tabs = window.get("tabs", [])
-        for t_index, tab in enumerate(tabs, 1):
-            title = tab.get("title") or url
-            url = tab.get("url")
-            items.append({
-                "title": title,
-                "subtitle": url,
-                "arg": url
-            })
+    for window in session["windows"]:
+        for tab in window.get("tabs", []):
+            title = tab.get("title", "")
+            url = tab.get("url", "")
+            if query in title.lower() or query in url.lower():
+                items.append({
+                    "title": title,
+                    "subtitle": url,
+                    "arg": url
+                })
 
 if not items:
     items.append({
-        "title": "No tabs found",
-        "subtitle": "This session has no windows or tabs",
+        "title": "No matching tabs found" if query else "No tabs found",
+        "subtitle": "Try typing a keyword" if query else "This session has no windows or tabs",
         "valid": False,
         "icon": { "path": "info.png" }
     })
