@@ -100,6 +100,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>F47B7353-FF49-4922-B0DD-56AE410C9DF5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C69B0926-21F3-462C-8401-5CA9753B7C33</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>F5541B80-C274-4D20-8D83-3672D4CDD8BF</key>
 		<array>
 			<dict>
@@ -540,6 +553,30 @@ python3 scripts/view_session.py "$1"</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_directory"
+python3 scripts/open_url.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C69B0926-21F3-462C-8401-5CA9753B7C33</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -636,6 +673,15 @@ python3 scripts/view_session.py "$1"</string>
 			<real>570</real>
 			<key>ypos</key>
 			<real>700</real>
+		</dict>
+		<key>C69B0926-21F3-462C-8401-5CA9753B7C33</key>
+		<dict>
+			<key>note</key>
+			<string>open url</string>
+			<key>xpos</key>
+			<real>895</real>
+			<key>ypos</key>
+			<real>870</real>
 		</dict>
 		<key>F47B7353-FF49-4922-B0DD-56AE410C9DF5</key>
 		<dict>

@@ -30,8 +30,7 @@ if session:
             items.append({
                 "title": title,
                 "subtitle": subtitle,
-                "arg": tab.get("url"),
-                "valid":False
+                "arg": url
             })
 
 if not items:
