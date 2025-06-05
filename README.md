@@ -6,6 +6,8 @@ Works with: `Chrome, Brave, Safari, Arc & Edge Browsers`
 
 ▸ Requires [jq](https://formulae.brew.sh/formula/jq)
 
+> *See Restore It!'s workflow-brother, [Tag It!](https://github.com/modrocko/tag-it)*
+
 ## Usage
 
 ### Save session
