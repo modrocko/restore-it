@@ -579,7 +579,33 @@ python3 scripts/open_url.py "$1"</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string># Restore It!
+
+Save &amp; restore all browser windows &amp; tabs to keep control of endless webpages on your screen(s).
+
+Works with: `Chrome, Brave, Safari, Arc &amp; Edge Browsers`
+
+▸ Requires [jq](https://formulae.brew.sh/formula/jq)
+
+## Usage
+
+### Save session
+
+Get your browser windows &amp; tabs just perfect on your screen(s). 
+
+Then... 1) Invoke this workflow 2) Name it 3) Hit enter
+
+Everything saved to restore this session later on. No need to keep open countless tabs for *all* your projects. 
+
+![](assets/save-session.png) 
+
+### Restore session
+
+Invoke this Alfred feature anytime you want to work on that project again. This time without any eye or brain clutter.
+
+![](assets/restore-session.png) 
+
+### It's that easy!</string>
 	<key>uidata</key>
 	<dict>
 		<key>00F1381C-8066-410C-9C39-4F93715E757F</key>
@@ -809,7 +835,7 @@ python3 scripts/open_url.py "$1"</string>
 		</dict>
 	</array>
 	<key>version</key>
-	<string></string>
+	<string>1.5.6</string>
 	<key>webaddress</key>
 	<string>toddsgotapen.com</string>
 </dict>
