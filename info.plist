@@ -774,9 +774,9 @@ Invoke this Alfred feature anytime you want to work on that project again. This 
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>res save</string>
+				<string>ress</string>
 				<key>placeholder</key>
-				<string>res save</string>
+				<string>ress</string>
 				<key>required</key>
 				<false/>
 				<key>trim</key>
@@ -795,9 +795,9 @@ Invoke this Alfred feature anytime you want to work on that project again. This 
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>res list</string>
+				<string>resl</string>
 				<key>placeholder</key>
-				<string>res list</string>
+				<string>resl</string>
 				<key>required</key>
 				<false/>
 				<key>trim</key>
@@ -816,9 +816,9 @@ Invoke this Alfred feature anytime you want to work on that project again. This 
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>res utils</string>
+				<string>resu</string>
 				<key>placeholder</key>
-				<string>res utils</string>
+				<string>:resu</string>
 				<key>required</key>
 				<false/>
 				<key>trim</key>
@@ -834,8 +834,6 @@ Invoke this Alfred feature anytime you want to work on that project again. This 
 			<string>res_utils</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>1.5.7</string>
 	<key>webaddress</key>

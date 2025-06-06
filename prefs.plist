@@ -4,11 +4,5 @@
 <dict>
 	<key>browser</key>
 	<string>Brave Browser</string>
-	<key>res_list</key>
-	<string>resl</string>
-	<key>res_save</key>
-	<string>ress</string>
-	<key>res_utils</key>
-	<string>:resu</string>
 </dict>
 </plist>
