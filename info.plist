@@ -816,7 +816,7 @@ Invoke this Alfred feature anytime you want to work on that project again. This 
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>resu</string>
+				<string>:resu</string>
 				<key>placeholder</key>
 				<string>:resu</string>
 				<key>required</key>
@@ -835,7 +835,7 @@ Invoke this Alfred feature anytime you want to work on that project again. This 
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.5.7</string>
+	<string>1.5.8</string>
 	<key>webaddress</key>
 	<string>toddsgotapen.com</string>
 </dict>
