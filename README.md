@@ -12,6 +12,10 @@ Works with: `Chrome, Brave, Safari, Arc & Edge Browsers`
 
 ## Usage
 
+### Setup
+
+Specify your browser of choice in `Configure Workflow`.
+
 ### Save session
 
 Get your browser windows & tabs just perfect on your screen(s). 

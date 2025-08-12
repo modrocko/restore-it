@@ -138,18 +138,29 @@ def get_browser_windows():
 
 
 def save_session(session_name, windows, file_path):
+    import os
+
+    # ensure parent folder exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+    # load existing sessions (or start fresh)
     try:
         with open(file_path, "r") as f:
             sessions = json.load(f)
-    except FileNotFoundError:
+            if not isinstance(sessions, list):
+                sessions = []
+    except (FileNotFoundError, json.JSONDecodeError):
         sessions = []
 
-    sessions = [s for s in sessions if s["session"] != session_name]
+    # replace any session with the same name
+    sessions = [s for s in sessions if s.get("session") != session_name]
     sessions.append({
         "session": session_name,
         "id": str(uuid.uuid4()),
-        "windows": windows})
+        "windows": windows
+    })
 
+    # write file
     with open(file_path, "w") as f:
         json.dump(sessions, f, indent=2)
 

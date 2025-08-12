@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.toddsgotapen.restoreit</string>
-	<key>category</key>
-	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>00F1381C-8066-410C-9C39-4F93715E757F</key>
@@ -587,7 +585,15 @@ Works with: `Chrome, Brave, Safari, Arc &amp; Edge Browsers`
 
 ▸ Requires [jq](https://formulae.brew.sh/formula/jq)
 
+&gt; *See Restore It!'s workflow-brother, [Bookmark It!](https://github.com/modrocko/bookmark-it)*
+
+▸ [Download latest workflow](https://github.com/modrocko/restore-it/releases/latest)
+
 ## Usage
+
+### Setup
+
+Specify your browser of choice in `Configure Workflow`.
 
 ### Save session
 
@@ -834,8 +840,10 @@ Invoke this Alfred feature anytime you want to work on that project again. This 
 			<string>res_utils</string>
 		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
-	<string>1.5.8</string>
+	<string>2.5.9</string>
 	<key>webaddress</key>
 	<string>toddsgotapen.com</string>
 </dict>
