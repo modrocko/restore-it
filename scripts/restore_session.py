@@ -18,43 +18,21 @@ def open_window_in_browser(bounds, urls, browser):
 
     if browser.lower() == "safari":
         script = f'''
-        set wasRunning to false
-        tell application "System Events"
-            set wasRunning to (name of processes) contains "Safari"
-        end tell
-
         tell application "Safari"
             activate
-            if not wasRunning then
-                launch
-                delay 0.4
-                -- close any default blank windows Safari opened
-                repeat with w in (every window)
-                    try
-                        if (count of tabs of w) = 0 then
-                            close w
-                        else if (count of tabs of w) = 1 then
-                            set u to URL of tab 1 of w
-                            if u is missing value or u is "" or u is "about:blank" then close w
-                        end if
-                    end try
-                end repeat
-            end if
-
-            -- now make your saved session
-            make new document with properties {{URL: "{urls[0]}"}}
+            set newDoc to make new document
             set bounds of front window to {{{bounds["x"]}, {bounds["y"]}, {bounds["x"] + bounds["width"]}, {bounds["y"] + bounds["height"]}}}
+            set URL of front document to "{urls[0]}"
         '''
 
         if len(urls) > 1:
             script += '\ntell front window'
             for url in urls[1:]:
-                script += '\nmake new tab at end of tabs'
-                script += f'\nset URL of last tab to "{url}"'
+                script += f'\nset newTab to make new tab at end of tabs'
+                script += f'\nset URL of newTab to "{url}"'
             script += '\nend tell'
 
         script += '\nend tell'
-
 
     else:
         first_url = json.dumps(urls[0])
