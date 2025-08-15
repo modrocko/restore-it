@@ -23,6 +23,12 @@ def save_with_safari():
         return "[" & joined & "]"
     end join_json_items
 
+    on safe_value(v, fallback)
+        if v is missing value then return fallback
+        if v is "" then return fallback
+        return v
+    end safe_value
+
     if application "Safari" is not running then
         return "[]"
     end if
@@ -31,26 +37,28 @@ def save_with_safari():
         set window_jsons to {}
 
         repeat with w in windows
+            -- bounds
             set b to bounds of w
             set x to item 1 of b
             set y to item 2 of b
             set width to (item 3 of b) - x
             set height to (item 4 of b) - y
 
+            -- tabs
             set tab_jsons to {}
-            set tab_list to tabs of w
-
-            repeat with the_tab in tab_list
-                set the_title to name of the_tab
-                set the_url to URL of the_tab
+            repeat with t in tabs of w
+                set the_title to my safe_value(name of t, "")
+                set the_url to my safe_value(URL of t, "about:blank")
                 if the_title is "" then set the_title to the_url
 
-                set esc_title to do shell script "python3 -c 'import json,sys; print(json.dumps(sys.argv[1]))' " & quoted form of the_title
-                set esc_url to do shell script "python3 -c 'import json,sys; print(json.dumps(sys.argv[1]))' " & quoted form of the_url
+                -- escape safely using Python JSON
+                set esc_title to do shell script "python3 -c 'import json,sys; print(json.dumps(sys.argv[1]))'" & space & quoted form of (the_title as text)
+                set esc_url to do shell script "python3 -c 'import json,sys; print(json.dumps(sys.argv[1]))'" & space & quoted form of (the_url as text)
 
                 set end of tab_jsons to "{\\\"title\\\": " & esc_title & ", \\\"url\\\": " & esc_url & "}"
             end repeat
 
+            -- build window json
             set tabs_str to my join_json_items(tab_jsons)
             set bounds_str to "{\\\"x\\\": " & x & ", \\\"y\\\": " & y & ", \\\"width\\\": " & width & ", \\\"height\\\": " & height & "}"
             set window_json to "{\\\"bounds\\\": " & bounds_str & ", \\\"tabs\\\": " & tabs_str & "}"
